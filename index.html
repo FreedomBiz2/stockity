@@ -3,11 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FreedomBiz - Komunitas Trading VIP</title>
+    <title>FreedomBiz - Komunitas Trading VIP Gratis</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
-            background-color: #f8f9fa;
+            background-color: #f0f5ff;
             color: #333;
             margin: 0;
             padding: 0;
@@ -16,86 +16,243 @@
         .container {
             max-width: 600px;
             margin: 20px auto;
-            padding: 20px;
+            padding: 30px;
             background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            border-radius: 15px;
+            box-shadow: 0 6px 12px rgba(0, 51, 153, 0.1);
+            border: 1px solid #003399;
         }
         .logo {
-            font-size: 24px;
+            font-size: 28px;
             font-weight: bold;
             margin-bottom: 10px;
-            color: #0066ff;
+            color: #003399;
+            text-shadow: 1px 1px 3px rgba(0, 51, 153, 0.1);
         }
         .subtitle {
             font-size: 18px;
-            margin: 10px 0;
-            color: #555;
-        }
-        .highlight {
-            background-color: #fff2cc;
-            padding: 15px;
-            border-radius: 5px;
-            margin: 20px 0;
+            margin: 10px 0 20px;
+            color: #003399;
             font-weight: bold;
         }
+        .highlight {
+            background-color: #e6f0ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            font-weight: bold;
+            border-left: 5px solid #003399;
+            color: #003399;
+        }
         .cta-button {
-            background-color: #0066ff;
+            background-color: #003399;
             color: white;
-            padding: 12px 25px;
+            padding: 15px 30px;
             border: none;
-            border-radius: 5px;
-            font-size: 16px;
+            border-radius: 8px;
+            font-size: 18px;
             cursor: pointer;
-            margin: 10px 0;
+            margin: 20px 0;
             display: inline-block;
             text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 8px rgba(0, 51, 153, 0.2);
+        }
+        .cta-button:hover {
+            background-color: #002266;
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0, 51, 153, 0.3);
         }
         .telegram-link {
             margin: 20px 0;
-            font-size: 14px;
+            font-size: 16px;
+            font-weight: bold;
+            color: #003399;
         }
         .disclaimer {
             font-size: 12px;
-            color: #999;
+            color: #666;
             margin-top: 30px;
+            line-height: 1.5;
         }
         hr {
             border: 0;
             height: 1px;
-            background-color: #eee;
-            margin: 20px 0;
+            background: linear-gradient(to right, transparent, #003399, transparent);
+            margin: 25px 0;
+        }
+        .fitur {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            text-align: left;
+            border-left: 5px solid #003399;
+        }
+        .fitur h3 {
+            margin-top: 0;
+            color: #003399;
+            text-align: center;
+        }
+        .fitur ul {
+            padding-left: 20px;
+        }
+        .fitur li {
+            margin: 15px 0;
+            list-style-type: none;
+            padding-left: 35px;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23003399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center;
+            line-height: 1.6;
+        }
+        .testimoni {
+            background: #f0f7ff;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 25px 0;
+            border-left: 5px solid #003399;
+            text-align: left;
+        }
+        .testimoni img {
+            float: left;
+            margin-right: 15px;
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            border: 2px solid #003399;
+        }
+        .testimoni p {
+            margin: 5px 0;
+        }
+        .testimoni-author {
+            font-weight: bold;
+            color: #003399;
+            margin-top: 10px;
+            display: block;
+        }
+        .faq {
+            margin: 30px 0;
+            text-align: left;
+        }
+        .faq h3 {
+            color: #003399;
+            text-align: center;
+        }
+        .faq-item {
+            background: #f0f7ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 15px 0;
+            border-left: 3px solid #003399;
+        }
+        .faq-item p {
+            margin: 8px 0;
+        }
+        .stats {
+            display: flex;
+            justify-content: space-around;
+            margin: 30px 0;
+        }
+        .stat-item {
+            background: #003399;
+            color: white;
+            padding: 15px;
+            border-radius: 10px;
+            min-width: 120px;
+        }
+        .stat-item h4 {
+            margin: 0;
+            font-size: 24px;
+        }
+        .stat-item p {
+            margin: 5px 0 0;
+            font-size: 14px;
+        }
+        .offer-badge {
+            background: #003399;
+            color: white;
+            padding: 8px 15px;
+            border-radius: 20px;
+            font-size: 14px;
+            display: inline-block;
+            margin-bottom: 15px;
+            font-weight: bold;
+        }
+        .affiliate-note {
+            font-size: 12px;
+            color: #666;
+            font-style: italic;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="logo">FreedomBiz</div>
-        <div class="subtitle">Stockity</div>
+        <div class="subtitle">Komunitas Trading VIP Gratis Selamanya</div>
         
+        <div class="offer-badge">KUOTA TERBATAS!</div>
         <div class="highlight">
-            BECOME PART OF A COMMUNITY<br>
-            Trade shoulder to shoulder with 1 million traders every day
+            🚀 DAFTAR SEKARANG DAN DAPATKAN AKSES VIP GRATIS!<br>
+            <small>Selama akun Anda aktif, tetap GRATIS!</small>
         </div>
         
-        <a href="#" class="cta-button">Trade now</a>
-        
-        <div class="disclaimer">
-            Risk warning: Your capital might be at risk
+        <div class="stats">
+            <div class="stat-item">
+                <h4>100%</h4>
+                <p>Gratis</p>
+            </div>
+            <div class="stat-item">
+                <h4>24/7</h4>
+                <p>Support</p>
+            </div>
         </div>
         
-        <hr>
+        <div class="fitur">
+            <h3>Fitur VIP Gratis:</h3>
+            <ul>
+                <li><strong>Sinyal Trading Harian</strong> - 3-5 sinyal akurat setiap hari</li>
+                <li><strong>PDF Pembelajaran Eksklusif</strong> - Materi update mingguan</li>
+                <li><strong>Kelas Privat</strong> - Webinar live 3x seminggu</li>
+                <li><strong>Konsultasi 24 Jam</strong> - Bimbingan langsung dari mentor</li>
+                <li><strong>Trabar (Trading Bareng)</strong> - Sesi trading sore & malam</li>
+                <li><strong>Grup Diskusi Eksklusif</strong> - Komunitas trader aktif</li>
+            </ul>
+            <p class="affiliate-note">*Komunitas gratis ini didukung oleh partner broker terpercaya</p>
+        </div>
         
-        <div class="highlight" style="background-color: #e6f7ff;">
-            GABUNG VIP BERSAMA RATUSAN TRADER LAINNYA,<br>
-            HASILKAN PROFITMU SETIAP HARINYA
+        <div class="testimoni">
+            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='%23003399'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/></svg>" alt="Testimoni">
+            <p>"Sejak gabung FreedomBiz gratis, profit saya konsisten 10-15% per bulan. Sinyalnya sama akuratnya dengan komunitas berbayar!"</p>
+            <span class="testimoni-author">- Budi Santoso, Member Gratis sejak 2022</span>
+        </div>
+        
+        <div class="faq">
+            <h3>Pertanyaan Umum:</h3>
+            <div class="faq-item">
+                <p><strong>Q: Benarkah benar-benar gratis?</strong></p>
+                <p>A: Ya! 100% gratis selamanya selama akun aktif. Kami mendapat dukungan dari partner broker.</p>
+            </div>
+            <div class="faq-item">
+                <p><strong>Q: Apa bedanya dengan komunitas berbayar?</strong></p>
+                <p>A: Fitur sama dengan VIP berbayar! Kami hanya meminta Anda menggunakan link affiliate broker kami.</p>
+            </div>
+            <div class="faq-item">
+                <p><strong>Q: Berapa banyak sinyal per hari?</strong></p>
+                <p>A: Minimal 3 sinyal berkualitas tinggi setiap hari trading.</p>
+            </div>
         </div>
         
         <div class="telegram-link">
-            DM TELEGRAM <a href="https://t.me/FreedomBiz2">@FreedomBiz2</a>
+            📩 Daftar via Telegram: <a href="https://t.me/FreedomBiz2" style="color:#003399;font-weight:bold;">@FreedomBiz2</a>
         </div>
         
-        <a href="https://stockity.id?a=c02342c2ff4e&t=0" class="cta-button">DAFTAR SEKARANG</a>
+        <a href="https://stockity.id?a=c02342c2ff4e&t=0" class="cta-button">DAFTAR VIP GRATIS SEKARANG</a>
+        
+        <div class="disclaimer">
+            Risk warning: Trading mengandung risiko. Kami tidak memungut biaya, tetapi mendapat komisi dari broker partner.
+            Selalu gunakan modal yang Anda siap kehilangan.
+        </div>
     </div>
 </body>
 </html>
