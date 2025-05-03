@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Jadwal Harian Izzulhaq</title>
+<style>
+  body { 
+    font-family: Arial, sans-serif; 
+    max-width: 600px; 
+    margin: 20px auto; 
+    padding: 10px;
+    transition: background-color 0.5s ease; /* transisi warna background */
+    color: #fff;
+  }
+  h2 { 
+    border-bottom: 1px solid rgba(255,255,255,0.3); 
+    padding-bottom: 5px; 
+  }
+  label { 
+    display: block; 
+    margin: 8px 0; 
+    cursor: pointer; 
+  }
+
+  input[type="checkbox"] {
+    cursor: pointer;
+  }
+</style>
+</head>
+<body>
+
+<h1>Jadwal Harian untuk Izzulhaq</h1>
+
+<section>
+  <h2>Pagi (Before School)</h2>
+  <label><input type="checkbox" id="bangunPagi" /> Bangun Pagi: 06.00</label>
+  <label><input type="checkbox" id="stretching" /> Stretching Ringan / Olahraga Singkat (5–10 menit)</label>
+  <label><input type="checkbox" id="bacaBukuPagi" /> Baca Buku (Atomic Habits atau Rich Dad Poor Dad, 10–15 menit)</label>
+  <label><input type="checkbox" id="sarapan" /> Sarapan + Persiapan ke Sekolah</label>
+</section>
+
+<section>
+  <h2>Siang (After School)</h2>
+  <label><input type="checkbox" id="reviewPelajaran" /> Review Pelajaran Sekolah: Fokus pelajaran teknik (minimal 20 menit)</label>
+  <label><input type="checkbox" id="belajarSNBP" /> Belajar Materi SNBP/SNBT (40 menit)</label>
+  <label><input type="checkbox" id="editKontenSiang" /> Edit Konten (30–45 menit)</label>
+</section>
+
+<section>
+  <h2>Sore</h2>
+  <label><input type="checkbox" id="olahragaSore" /> Olahraga: Workout ringan atau lari (20–30 menit)</label>
+  <label><input type="checkbox" id="belajarInggris" /> Belajar Bahasa Inggris (20 menit)</label>
+  <label><input type="checkbox" id="crypto" /> Crypto: Belajar tentang crypto atau blockchain (20 menit)</label>
+  <label><input type="checkbox" id="bacaTeknik" /> Baca Artikel/Buku Teknik (20 menit)</label>
+</section>
+
+<section>
+  <h2>Malam (Before Sleep)</h2>
+  <label><input type="checkbox" id="kerjakanSoal" /> Kerjakan Soal SNBP/SNBT (20 menit)</label>
+  <label><input type="checkbox" id="editKontenMalam" /> Lanjut Edit Konten (30 menit)</label>
+  <label><input type="checkbox" id="cekProgress" /> Cek Progress Checklist & Catatan</label>
+</section>
+
+<section>
+  <h2>Before Bed</h2>
+  <label><input type="checkbox" id="meditasi" /> Meditasi atau Relax (5 menit)</label>
+  <label><input type="checkbox" id="tidur" /> Tidur pukul 22.00 – 22.30</label>
+</section>
+
+<script>
+  // Semua ID checkbox yg ada
+  const ids = [
+    'bangunPagi', 'stretching', 'bacaBukuPagi', 'sarapan',
+    'reviewPelajaran', 'belajarSNBP', 'editKontenSiang',
+    'olahragaSore', 'belajarInggris', 'crypto', 'bacaTeknik',
+    'kerjakanSoal', 'editKontenMalam', 'cekProgress',
+    'meditasi', 'tidur'
+  ];
+
+  const DATE_KEY = 'jadwal_tanggal';
+  const CHECKLIST_KEY = 'jadwal_status';
+
+  // Fungsi dapatkan string tanggal hari ini (yyyy-mm-dd)
+  function getTodayString() {
+    const d = new Date();
+    return d.toISOString().slice(0,10);
+  }
+
+  // Fungsi untuk pilih warna latar hari ini berdasarkan tanggal agar warna stabil selama hari itu
+  function getColorByDate(dateStr) {
+    // Array warna cerah dan kontras (agar teks tetap terbaca)
+    const colors = [
+      '#1abc9c', // turquoise
+      '#3498db', // blue
+      '#9b59b6', // purple
+      '#e67e22', // orange
+      '#e74c3c', // red
+      '#2ecc71', // green
+      '#34495e', // dark blue-gray
+      '#16a085', // dark turquoise
+      '#f39c12', // yellow-orange
+      '#d35400', // dark orange
+      '#27ae60', // dark green
+      '#8e44ad'  // dark purple
+    ];
+
+    // Hitung hash sederhana dari tanggal (agar sama setiap hari)
+    let hash = 0;
+    for(let i=0; i<dateStr.length; i++){
+      hash = dateStr.charCodeAt(i) + ((hash << 5) - hash);
+    }
+
+    const index = Math.abs(hash) % colors.length;
+    return colors[index];
+  }
+
+  // Load checklist dari localStorage atau reset kalau hari baru
+  function loadChecklist() {
+    const savedDate = localStorage.getItem(DATE_KEY);
+    const today = getTodayString();
+
+    // Set background warna berdasarkan tanggal hari ini
+    document.body.style.backgroundColor = getColorByDate(today);
+
+    if(savedDate !== today) {
+      // Hari baru > reset checklist, simpan tanggal baru
+      ids.forEach(id => document.getElementById(id).checked = false);
+      localStorage.setItem(DATE_KEY, today);
+      localStorage.removeItem(CHECKLIST_KEY);
+      saveChecklist(); // simpan default kosong
+    } else {
+      // Load status dari localStorage
+      let status = localStorage.getItem(CHECKLIST_KEY);
+      if(status) {
+        status = JSON.parse(status);
+        ids.forEach(id => {
+          const checked = status[id];
+          if(typeof checked === 'boolean'){
+            document.getElementById(id).checked = checked;
+          }
+        });
+      }
+    }
+  }
+
+  // Simpan checklist ke localStorage
+  function saveChecklist() {
+    const status = {};
+    ids.forEach(id => {
+      status[id] = document.getElementById(id).checked;
+    });
+    localStorage.setItem(CHECKLIST_KEY, JSON.stringify(status));
+  }
+
+  // Fungsi getar device saat checkbox dicentang (jika mendukung dan dicentang)
+  function vibrateOnCheck(event) {
+    if(event.target.checked && navigator.vibrate){
+      navigator.vibrate(100);  // getar selama 100ms
+    }
+  }
+
+  // Pasang event listener pada setiap checkbox
+  ids.forEach(id => {
+    const cb = document.getElementById(id);
+    cb.addEventListener('change', e => {
+      saveChecklist();
+      vibrateOnCheck(e);
+    });
+  });
+
+  loadChecklist();
+
+</script>
+</body>
+</html>
