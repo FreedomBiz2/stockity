@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>FreedomBiz - Komunitas Trading VIP Gratis</title>
     <style>
         body {
@@ -23,11 +23,18 @@
             border: 1px solid #003399;
         }
         .logo {
-            font-size: 28px;
-            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             margin-bottom: 10px;
             color: #003399;
+            font-weight: bold;
+            font-size: 28px;
             text-shadow: 1px 1px 3px rgba(0, 51, 153, 0.1);
+        }
+        .logo img {
+            max-height: 60px;
+            margin-right: 12px;
         }
         .subtitle {
             font-size: 18px;
@@ -66,9 +73,19 @@
         }
         .telegram-link {
             margin: 20px 0;
-            font-size: 16px;
+            font-size: 18px;
             font-weight: bold;
             color: #003399;
+        }
+        .telegram-link a {
+            color: #003399;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .telegram-link a:hover,
+        .telegram-link a:focus {
+            text-decoration: underline;
+            outline: none;
         }
         .disclaimer {
             font-size: 12px;
@@ -104,31 +121,6 @@
             padding-left: 35px;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="%23003399" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>') no-repeat left center;
             line-height: 1.6;
-        }
-        .testimoni {
-            background: #f0f7ff;
-            padding: 20px;
-            border-radius: 10px;
-            margin: 25px 0;
-            border-left: 5px solid #003399;
-            text-align: left;
-        }
-        .testimoni img {
-            float: left;
-            margin-right: 15px;
-            border-radius: 50%;
-            width: 50px;
-            height: 50px;
-            border: 2px solid #003399;
-        }
-        .testimoni p {
-            margin: 5px 0;
-        }
-        .testimoni-author {
-            font-weight: bold;
-            color: #003399;
-            margin-top: 10px;
-            display: block;
         }
         .faq {
             margin: 30px 0;
@@ -188,12 +180,16 @@
 </head>
 <body>
     <div class="container">
-        <div class="logo">FreedomBiz</div>
+        <div class="logo">
+            <!-- Logo diganti sesuai URL Anda -->
+            <img src="https://i.ibb.co.com/SkwyWY7/20250504-132145.jpg" alt="Logo FreedomBiz" />
+            <span>FreedomBiz</span>
+        </div>
         <div class="subtitle">Komunitas Trading VIP Gratis Selamanya</div>
         
         <div class="offer-badge">KUOTA TERBATAS!</div>
         <div class="highlight">
-            🚀 DAFTAR SEKARANG DAN DAPATKAN AKSES VIP GRATIS!<br>
+            🚀 DAFTAR SEKARANG DAN DAPATKAN AKSES VIP GRATIS!<br />
             <small>Selama akun Anda aktif, tetap GRATIS!</small>
         </div>
         
@@ -220,34 +216,17 @@
             </ul>
             <p class="affiliate-note">*Komunitas gratis ini didukung oleh partner broker terpercaya</p>
         </div>
-        
-        <div class="testimoni">
-            <img src="data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='50' height='50' viewBox='0 0 24 24' fill='%23003399'><path d='M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z'/></svg>" alt="Testimoni">
-            <p>"Sejak gabung FreedomBiz gratis, profit saya konsisten 10-15% per bulan. Sinyalnya sama akuratnya dengan komunitas berbayar!"</p>
-            <span class="testimoni-author">- Budi Santoso, Member Gratis sejak 2022</span>
+
+        <div class="telegram-link" style="margin-top:30px; font-size:18px; font-weight:bold;">
+            🔥 Bergabung dengan Grup Telegram FreedomBiz:<br />
+            <a href="https://t.me/freedombizreal" target="_blank" rel="noopener noreferrer">
+                https://t.me/freedombizreal
+            </a>
         </div>
         
-        <div class="faq">
-            <h3>Pertanyaan Umum:</h3>
-            <div class="faq-item">
-                <p><strong>Q: Benarkah benar-benar gratis?</strong></p>
-                <p>A: Ya! 100% gratis selamanya selama akun aktif. Kami mendapat dukungan dari partner broker.</p>
-            </div>
-            <div class="faq-item">
-                <p><strong>Q: Apa bedanya dengan komunitas berbayar?</strong></p>
-                <p>A: Fitur sama dengan VIP berbayar! Kami hanya meminta Anda menggunakan link affiliate broker kami.</p>
-            </div>
-            <div class="faq-item">
-                <p><strong>Q: Berapa banyak sinyal per hari?</strong></p>
-                <p>A: Minimal 3 sinyal berkualitas tinggi setiap hari trading.</p>
-            </div>
-        </div>
+        <!-- Baris "Daftar via Telegram" dihapus sesuai permintaan -->
         
-        <div class="telegram-link">
-            📩 Daftar via Telegram: <a href="https://t.me/FreedomBiz2" style="color:#003399;font-weight:bold;">@FreedomBiz2</a>
-        </div>
-        
-        <a href="https://stockity.id?a=c02342c2ff4e&t=0" class="cta-button">DAFTAR VIP GRATIS SEKARANG</a>
+        <a href="https://stockity.id?a=c02342c2ff4e&t=0" class="cta-button" aria-label="Daftar VIP gratis sekarang">DAFTAR VIP GRATIS SEKARANG</a>
         
         <div class="disclaimer">
             Risk warning: Trading mengandung risiko. Kami tidak memungut biaya, tetapi mendapat komisi dari broker partner.
